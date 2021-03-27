@@ -1,3 +1,6 @@
+import { quotes } from "./quotes";
+
 export function Quote() {
-  return <blockquote>Test Quote</blockquote>;
+  const quote = quotes[0];
+  return <blockquote>{quote.text}</blockquote>;
 }
