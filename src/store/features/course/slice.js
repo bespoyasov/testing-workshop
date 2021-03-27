@@ -1,5 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { fetchCourse } from "../../../api";
+import { fetchTodayCourseFulfilled } from "./fulfilled";
+import { fetchTodayCoursePending } from "./pending";
 
 export const initialCourseState = {
   value: 42,
@@ -19,8 +21,9 @@ const courseSlice = createSlice({
   name: "course",
   initialState: initialCourseState,
   extraReducers: {
-    [fetchTodayCourse.pending]: (state, action) => state,
-    [fetchTodayCourse.fulfilled]: (state, action) => state,
+    [fetchTodayCourse.pending]: fetchTodayCoursePending,
+    [fetchTodayCourse.fulfilled]: fetchTodayCourseFulfilled,
+    // TODO: handle errors.
     [fetchTodayCourse.rejected]: (state, action) => state,
   },
 });
