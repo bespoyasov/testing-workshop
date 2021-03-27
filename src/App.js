@@ -1,5 +1,5 @@
-import "./App.css";
+import styles from "./App.module.css";
 
 export function App() {
-  return <div className="App"></div>;
+  return <main className={styles.main}></main>;
 }
