@@ -1,0 +1,16 @@
+.quote {
+  margin: 10px 0 0;
+  text-align: end;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.quote blockquote {
+  margin: 0;
+  padding: 0;
+}
+
+.author {
+  font-size: 0.75em;
+}
