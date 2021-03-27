@@ -16,7 +16,12 @@ export function renderWithStore(
   ui,
   { state = originalState, dispatch = null } = {}
 ) {
-  const middleware = applyMiddleware(thunk);
+  const observerMiddleware = () => (next) => (action) => {
+    if (dispatch) dispatch(action);
+    return next(action);
+  };
+
+  const middleware = applyMiddleware(observerMiddleware, thunk);
   const storeMock = createStore(reducer, state, middleware);
   return render(<Provider store={storeMock}>{ui}</Provider>);
 }
