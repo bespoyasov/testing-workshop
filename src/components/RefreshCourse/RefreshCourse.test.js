@@ -1,3 +1,4 @@
+import userEvent from "@testing-library/user-event";
 import { screen } from "@testing-library/react";
 import { renderWithStore } from "../../testUtils";
 import { loadingCourseState, errorCourseState } from "../../testUtils/store";
@@ -30,5 +31,17 @@ describe("when the button is in an error state", () => {
     });
 
     expect(screen.getByText(/Something went wrong./)).toBeInTheDocument();
+  });
+});
+
+describe("when the button is clicked", () => {
+  it("should call the required action", () => {
+    const dispatchMock = jest.fn();
+    renderWithStore(<RefreshCourse />, {
+      dispatch: dispatchMock,
+    });
+
+    userEvent.click(screen.getByRole("button"));
+    expect(dispatchMock).toHaveBeenCalled();
   });
 });
