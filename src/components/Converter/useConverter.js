@@ -1,10 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { rubToUsd, usdToRub } from "../../domain/converter";
 
 export function useConverter(initialRubValue, course) {
   const calculatedUsdAmount = rubToUsd(initialRubValue, course);
   const [rub, setRub] = useState(initialRubValue);
   const [usd, setUsd] = useState(calculatedUsdAmount);
+
+  useEffect(() => {
+    setRub(initialRubValue);
+    setUsd(rubToUsd(initialRubValue, course));
+  }, [initialRubValue, course]);
 
   function createUpdater(direction) {
     const isFromRub = direction === "rub-usd";
