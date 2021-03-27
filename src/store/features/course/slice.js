@@ -29,4 +29,6 @@ const courseSlice = createSlice({
 });
 
 export const selectCourse = (state) => state.course.value;
+export const selectStatus = (state) => state.course.status;
+export const selectError = (state) => state.course.error;
 export default courseSlice.reducer;
