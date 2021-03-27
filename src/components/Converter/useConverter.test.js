@@ -1,4 +1,4 @@
-import { renderHook } from "@testing-library/react-hooks";
+import { act, renderHook } from "@testing-library/react-hooks";
 import { useConverter } from "./useConverter";
 
 const course = 42;
@@ -18,13 +18,47 @@ describe("when rendered", () => {
 });
 
 describe("when called an `updateRub` method", () => {
-  it.todo("should update the RUB value");
-  it.todo("should recalculate the USD value");
+  it("should update the RUB value", () => {
+    const { result } = renderHook(() => useConverter(testRubAmount, course));
+
+    act(() => {
+      result.current.updateRub(10);
+    });
+
+    expect(result.current.rub).toEqual(10);
+  });
+
+  it("should recalculate the USD value", () => {
+    const { result } = renderHook(() => useConverter(testRubAmount, course));
+
+    act(() => {
+      result.current.updateRub(10);
+    });
+
+    expect(result.current.usd).toEqual(0.24);
+  });
 });
 
 describe("when called an `updateUsd` method", () => {
-  it.todo("should update the USD value");
-  it.todo("should recalculate the RUB value");
+  it("should update the USD value", () => {
+    const { result } = renderHook(() => useConverter(testRubAmount, course));
+
+    act(() => {
+      result.current.updateUsd(10);
+    });
+
+    expect(result.current.usd).toEqual(10);
+  });
+
+  it("should recalculate the RUB value", () => {
+    const { result } = renderHook(() => useConverter(testRubAmount, course));
+
+    act(() => {
+      result.current.updateUsd(10);
+    });
+
+    expect(result.current.rub).toEqual(420);
+  });
 });
 
 describe("when re-rendered", () => {
