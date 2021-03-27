@@ -6,21 +6,23 @@ export function useConverter(initialRubValue, course) {
   const [rub, setRub] = useState(initialRubValue);
   const [usd, setUsd] = useState(calculatedUsdAmount);
 
-  function updateRub(value) {
-    const rub = Number(value);
-    const usd = rubToUsd(rub, course);
+  function createUpdater(direction) {
+    const isFromRub = direction === "rub-usd";
+    const convert = isFromRub ? rubToUsd : usdToRub;
+    const setOriginal = isFromRub ? setRub : setUsd;
+    const setTarget = isFromRub ? setUsd : setRub;
 
-    setRub(rub);
-    setUsd(usd);
+    return function update(value) {
+      const original = Number(value);
+      const target = convert(original, course);
+
+      setOriginal(original);
+      setTarget(target);
+    };
   }
 
-  function updateUsd(value) {
-    const usd = Number(value);
-    const rub = usdToRub(usd, course);
-
-    setRub(rub);
-    setUsd(usd);
-  }
+  const updateRub = createUpdater("rub-usd");
+  const updateUsd = createUpdater("usd-rub");
 
   return {
     rub,
