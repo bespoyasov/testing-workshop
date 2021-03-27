@@ -16,8 +16,10 @@ import { renderWithStore } from "../../testUtils";
 
 const mockUpdateRub = jest.fn();
 const mockUpdateUsd = jest.fn();
+const mockInitialRender = jest.fn();
 
-function useConverterMock() {
+function useConverterMock(initialValue, initialCourse) {
+  mockInitialRender(initialCourse);
   return {
     rub: 100,
     usd: 2.38,
@@ -25,6 +27,9 @@ function useConverterMock() {
     updateUsd: mockUpdateUsd,
   };
 }
+
+beforeEach(() => jest.clearAllMocks());
+afterAll(() => jest.restoreAllMocks());
 
 describe("when rendered", () => {
   it("rub input should have a value with a rub amount", () => {
@@ -35,6 +40,15 @@ describe("when rendered", () => {
   it("usd input should have a value with a usd amount", () => {
     renderWithStore(<Converter useConverter={useConverterMock} />);
     expect(screen.getByLabelText(/Сумма в долларах/)).toHaveValue(2.38);
+  });
+
+  it("should call the `useConverter` hook with a course value from the store", () => {
+    const storeMock = { course: { value: 100500 } };
+    renderWithStore(<Converter useConverter={useConverterMock} />, {
+      state: storeMock,
+    });
+
+    expect(mockInitialRender).toHaveBeenCalledWith(100500);
   });
 });
 
