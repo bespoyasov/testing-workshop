@@ -1,3 +1,4 @@
-# Getting Started with Create React App
+# Исходники к приложению из воркшопа о тестировании
 
-Testing workshop code examples.
+- [Запись воркшопа](https://www.youtube.com/watch?v=oaktsy6YKMk)
+- [Слайды в докладу](https://bespoyasov.ru/testing-workshop/)
