@@ -1,6 +1,6 @@
 # Testing React Applications in Practice
 
-In this workshop we will write a currency converter and cover it with tests. In the workshop, we will discuss how to:
+In this workshop, we will write a currency converter and cover it with tests. In the workshop, we will discuss how to:
 
 - Extract and test business logic using pure functions;
 - Divide the code into modules so that it's easy to test them;
@@ -12,4 +12,4 @@ In this workshop we will write a currency converter and cover it with tests. In 
 ## Sources
 
 - [Workshop on YouTube (in Russian)](https://www.youtube.com/watch?v=oaktsy6YKMk)
-- [Slides and links to useful materials](https://bespoyasov.me/talks/testing-workshop/)
+- [Slides and Other Sources](https://bespoyasov.me/talks/testing-workshop/)
