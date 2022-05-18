@@ -1,15 +1,15 @@
-# Тестирование React-приложений на практике
+# Testing React Applications in Practice
 
-На этом воркшопе мы напишем конвертер валют и покроем его тестами. На воркшопе научимся:
+In this workshop we will write a currency converter and cover it with tests. In the workshop, we will discuss how to:
 
-- выделять и тестировать бизнес-логику;
-- разделять код на модули так, чтобы их было удобно тестировать;
-- применять разные стратегии моков, готовить стабы и тестовые данные;
-- тестировать сайд-эффекты и React-хуки;
-- работать с асинхронными функциями и тестировать их;
-- прятать сторонние библиотеки за адаптерами для удобного тестирования.
+- Extract and test business logic using pure functions;
+- Divide the code into modules so that it's easy to test them;
+- Apply different mock strategies, prepare stubs and test data;
+- Test side-effects and React hooks;
+- Work with asynchronous functions and test them;
+- Connect third-party libraries via adapters for convenient testing.
 
-Велком:
+## Sources
 
-- [Запись воркшопа](https://www.youtube.com/watch?v=oaktsy6YKMk)
-- [Слайды и ссылки на полезные материалы](https://bespoyasov.ru/testing-workshop/)
+- [Workshop on YouTube (in Russian)](https://www.youtube.com/watch?v=oaktsy6YKMk)
+- [Slides and links to useful materials](https://bespoyasov.me/talks/testing-workshop/)
