@@ -1,5 +1,7 @@
 # Testing React Applications in Practice
 
+> Read [in Russian](./docs/ru.md)
+
 In this workshop, we will write a currency converter and cover it with tests. In the workshop, we will discuss how to:
 
 - Extract and test business logic using pure functions;
