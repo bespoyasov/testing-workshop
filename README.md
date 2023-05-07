@@ -13,5 +13,5 @@ In this workshop, we will write a currency converter and cover it with tests. In
 
 ## Sources
 
-- [Workshop on YouTube (in Russian)](https://www.youtube.com/watch?v=oaktsy6YKMk)
+- [Workshop on YouTube (in Russian with English subs)](https://www.youtube.com/watch?v=oaktsy6YKMk)
 - [Slides and Other Sources](https://bespoyasov.me/talks/testing-workshop/)
